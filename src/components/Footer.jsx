@@ -37,7 +37,7 @@ const Footer = () => {
                                 <Phone size={18} /> +92 300 5956747
                             </li>
                             <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--text-light)' }}>
-                                <Mail size={18} /> support@medstar.com
+                                <Mail size={18} /> ms85marketing@gmail.com
                             </li>
                         </ul>
                     </div>
