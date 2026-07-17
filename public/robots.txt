@@ -1,5 +1,16 @@
-# https://www.robotstxt.org/robotstxt.html
+# MedStar Pakistan — Medical Equipment Japan Import
+# https://med-star-liard.vercel.app
+
 User-agent: *
 Allow: /
 
+# Block useless crawl targets
+Disallow: /dist/
+Disallow: /*.json$
+Disallow: /node_modules/
+
+# Sitemaps
 Sitemap: https://med-star-liard.vercel.app/sitemap.xml
+Sitemap: https://med-star-liard.vercel.app/sitemap-main.xml
+Sitemap: https://med-star-liard.vercel.app/sitemap-products-ultrasound.xml
+Sitemap: https://med-star-liard.vercel.app/sitemap-products-other.xml

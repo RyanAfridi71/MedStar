@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sitemap-products-other.xml
+  All non-ultrasound Japan import machines | MedStar Pakistan
+  Categories: CR Systems, Anesthesia, Pumps, Aesthetic, Electrosurgical, Ophthalmology & OR, Ventilators
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ════════════════════════════════════════
+       CR (COMPUTED RADIOGRAPHY) SYSTEMS
+  ════════════════════════════════════════ -->
+  <!-- Fujifilm FCR -->
+  <url><loc>https://med-star-liard.vercel.app/products?search=Fujifilm+FCR+XG</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Fujifilm+FCR+Prima</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Fujifilm+FCR+Prima+T</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Fujifilm+FCR+Prima+T2</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Fujifilm+FCR+Prima+V</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Fujifilm+FCR+F2</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Fujifilm+FCR+Capsula</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Fujifilm+FCR+Capsula+2</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Fujifilm+FCR+Carbon</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Fujifilm+FCR+Carbon+T2</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Fujifilm+FCR+Speedia</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Fujifilm+FCR+Speedia+CS</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- Konica Minolta REGIUS -->
+  <url><loc>https://med-star-liard.vercel.app/products?search=Konica+Minolta+REGIUS+110</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Konica+Minolta+REGIUS+190</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Konica+Minolta+REGIUS+Sigma</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Konica+Minolta+REGIUS+Sigma+II</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- ════════════════════════════════════════
+       ANESTHESIA MACHINES
+  ════════════════════════════════════════ -->
+  <!-- Dräger -->
+  <url><loc>https://med-star-liard.vercel.app/products?search=Drager+Fabius</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Drager+Fabius+GS</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Drager+Fabius+Tiro</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Drager+Primus</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- GE Datex-Ohmeda -->
+  <url><loc>https://med-star-liard.vercel.app/products?search=GE+Aisys</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=GE+Aisys+CS</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=GE+Avance</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=GE+Avance+CS</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=GE+Datex-Ohmeda+Aestiva</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=GE+Datex-Ohmeda+Aespire+View</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=GE+Datex-Ohmeda+Aespire+Pro</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- ════════════════════════════════════════
+       INFUSION & SYRINGE PUMPS
+  ════════════════════════════════════════ -->
+  <!-- Terumo -->
+  <url><loc>https://med-star-liard.vercel.app/products?search=Terumo+TE-331+Syringe+Pump</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Terumo+TE-372+Infusion+Pump</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Terumo+TE-112+Infusion+Pump</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- JMS -->
+  <url><loc>https://med-star-liard.vercel.app/products?search=JMS+SP-500+Syringe+Pump</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=JMS+IP-770+Infusion+Pump</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- Kangaroo -->
+  <url><loc>https://med-star-liard.vercel.app/products?search=Kangaroo+ePump+Enteral+Feeding+Pump</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Kangaroo+Joey+Enteral+Feeding+Pump</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- ════════════════════════════════════════
+       AESTHETIC / LASER SYSTEMS
+  ════════════════════════════════════════ -->
+  <!-- Candela -->
+  <url><loc>https://med-star-liard.vercel.app/products?search=Candela+Vbeam</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Candela+Vbeam+Perfecta+Pulsed+Dye+Laser</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Candela+GentleMax+Laser+System</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Candela+GentlePro+Series</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Candela+GentleYAG+Laser</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- Lumenis -->
+  <url><loc>https://med-star-liard.vercel.app/products?search=Lumenis+M22</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Lumenis+Lightsheer+Duet</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Lumenis+Lightsheer+Desire</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- JMEC & Curia -->
+  <url><loc>https://med-star-liard.vercel.app/products?search=JMEC+Laser+System</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Curia+Laser+System</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- ════════════════════════════════════════
+       ELECTROSURGICAL / CAUTERY UNITS
+  ════════════════════════════════════════ -->
+  <url><loc>https://med-star-liard.vercel.app/products?search=Valleylab+Force+40</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Valleylab+Force+20</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Valleylab+Force+Triad</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Valleylab+200</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Valleylab+300</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Valleylab+400</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- ════════════════════════════════════════
+       OPHTHALMOLOGY & OR EQUIPMENT
+  ════════════════════════════════════════ -->
+  <url><loc>https://med-star-liard.vercel.app/products?search=Ophthalmic+Operating+Microscope</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Nd+YAG+Laser+Ophthalmic</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Lense+Meter</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Slit+Lamp+Biomicroscope</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Ophthalmic+B-Scan+Ultrasound</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=OT+Operating+Table</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=OT+Surgical+Lights</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Medical+Autoclave</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+
+  <!-- ════════════════════════════════════════
+       VENTILATORS
+  ════════════════════════════════════════ -->
+  <url><loc>https://med-star-liard.vercel.app/products?search=IMI+Ventilator</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Hamilton+C2+Ventilator</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Drager+Evita+Ventilator</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Drager+Savina+Ventilator</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Covidien+PB840+Ventilator</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Covidien+PB980+Ventilator</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Covidien+Bunnet</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Newport+e840+Ventilator</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://med-star-liard.vercel.app/products?search=Newport+e500+Ventilator</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+</urlset>
