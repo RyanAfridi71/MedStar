@@ -1,11 +1,11 @@
 {
-  "name": "medstar",
+  "name": "skymedical",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node -e \"import('fs').then(f => f.copyFileSync('public/.htaccess', 'dist/.htaccess'))\"",
     "lint": "eslint .",
     "preview": "vite preview"
   },

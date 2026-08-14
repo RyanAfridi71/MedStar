@@ -1,5 +1,5 @@
-# MedStar Pakistan — Medical Equipment Japan Import
-# https://med-star-liard.vercel.app
+# SkyMedical Pakistan — Used & Refurbished Medical Equipment Japan Import
+# https://skymedical.store
 
 User-agent: *
 Allow: /
@@ -10,7 +10,7 @@ Disallow: /*.json$
 Disallow: /node_modules/
 
 # Sitemaps
-Sitemap: https://med-star-liard.vercel.app/sitemap.xml
-Sitemap: https://med-star-liard.vercel.app/sitemap-main.xml
-Sitemap: https://med-star-liard.vercel.app/sitemap-products-ultrasound.xml
-Sitemap: https://med-star-liard.vercel.app/sitemap-products-other.xml
+Sitemap: https://skymedical.store/sitemap.xml
+Sitemap: https://skymedical.store/sitemap-main.xml
+Sitemap: https://skymedical.store/sitemap-products-ultrasound.xml
+Sitemap: https://skymedical.store/sitemap-products-other.xml

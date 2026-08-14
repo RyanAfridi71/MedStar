@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://med-star-liard.vercel.app/sitemap-main.xml</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://skymedical.store/sitemap-main.xml</loc>
+    <lastmod>2026-08-14</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://med-star-liard.vercel.app/sitemap-products-ultrasound.xml</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://skymedical.store/sitemap-products-ultrasound.xml</loc>
+    <lastmod>2026-08-14</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://med-star-liard.vercel.app/sitemap-products-other.xml</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://skymedical.store/sitemap-products-other.xml</loc>
+    <lastmod>2026-08-14</lastmod>
   </sitemap>
 </sitemapindex>

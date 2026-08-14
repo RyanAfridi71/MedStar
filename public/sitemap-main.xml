@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  sitemap-main.xml — Core pages of MedStar Pakistan
-  Medical Equipment imported from Japan | med-star-liard.vercel.app
+  sitemap-main.xml — Core pages of SkyMedical Pakistan
+  Used & Refurbished Medical Equipment imported from Japan | skymedical.store
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -10,8 +10,8 @@
        HOMEPAGE
   ═══════════════════════════════════════════ -->
   <url>
-    <loc>https://med-star-liard.vercel.app/</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://skymedical.store/</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -20,22 +20,22 @@
        CORE PAGES
   ═══════════════════════════════════════════ -->
   <url>
-    <loc>https://med-star-liard.vercel.app/products</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://skymedical.store/products</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <url>
-    <loc>https://med-star-liard.vercel.app/about</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://skymedical.store/about</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://med-star-liard.vercel.app/contact</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://skymedical.store/contact</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -44,57 +44,57 @@
        PRODUCT CATEGORY PAGES
   ═══════════════════════════════════════════ -->
   <url>
-    <loc>https://med-star-liard.vercel.app/products?category=Ultrasound</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://skymedical.store/products?category=Ultrasound</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://med-star-liard.vercel.app/products?category=Computed+Radiography</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://skymedical.store/products?category=Computed+Radiography</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://med-star-liard.vercel.app/products?category=Anesthesia</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://skymedical.store/products?category=Anesthesia</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://med-star-liard.vercel.app/products?category=Pumps</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://skymedical.store/products?category=Pumps</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://med-star-liard.vercel.app/products?category=Aesthetic</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://skymedical.store/products?category=Aesthetic</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://med-star-liard.vercel.app/products?category=Electrosurgical</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://skymedical.store/products?category=Electrosurgical</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://med-star-liard.vercel.app/products?category=Ophthalmology+%26+OR</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://skymedical.store/products?category=Ophthalmology+%26+OR</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://med-star-liard.vercel.app/products?category=Ventilators</loc>
-    <lastmod>2026-07-18</lastmod>
+    <loc>https://skymedical.store/products?category=Ventilators</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>

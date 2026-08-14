@@ -14,7 +14,7 @@ const Contact = () => {
     // Build pre-filled message when coming from a product card
     const buildInquiryMessage = () => {
         if (!hasInquiry) return '';
-        return `Hello MedStar Team,
+        return `Hello SkyMedical Team,
 
 I am interested in inquiring about the following Japanese import machine:
 
@@ -69,7 +69,7 @@ Thank you.`;
         // Build a clear subject line
         const subject = hasInquiry
             ? `Price Inquiry: ${inquiryProduct} (${inquiryBrand}) — from ${formData.name}`
-            : `New MedStar Inquiry from ${formData.name}`;
+            : `New SkyMedical Inquiry from ${formData.name}`;
 
         try {
             const response = await fetch('https://api.web3forms.com/submit', {
@@ -84,7 +84,7 @@ Thank you.`;
                     email: formData.email,
                     message: formData.message,
                     subject,
-                    from_name: 'MedStar Website',
+                    from_name: 'SkyMedical Website',
                     // Extra structured fields sent to the inbox
                     ...(hasInquiry && {
                         product_name: inquiryProduct,
@@ -190,7 +190,7 @@ Thank you.`;
                             </div>
                             <div>
                                 <h4 style={{ fontSize: '1rem', marginBottom: '0.25rem' }}>Email</h4>
-                                <p style={{ margin: 0, color: 'var(--text-dark)', fontWeight: '500' }}>ms85marketing@gmail.com</p>
+                                <p style={{ margin: 0, color: 'var(--text-dark)', fontWeight: '500' }}>info@skymedical.store</p>
                             </div>
                         </div>
 
@@ -205,7 +205,7 @@ Thank you.`;
                         </div>
                     </div>
 
-                    {/* Why MedStar Trust Block */}
+                    {/* Why SkyMedical Trust Block */}
                     <div style={{
                         marginTop: '2.5rem',
                         padding: '1.25rem',
@@ -214,7 +214,7 @@ Thank you.`;
                         border: '1px solid #e2e8f0'
                     }}>
                         <p style={{ fontWeight: '700', color: 'var(--text-dark)', marginBottom: '0.75rem', fontSize: '0.9rem' }}>
-                            Why buy from MedStar?
+                            Why buy from SkyMedical?
                         </p>
                         {[
                             '🇯🇵 Direct Japan import machines',

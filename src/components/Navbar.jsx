@@ -16,7 +16,7 @@ const Navbar = () => {
         }}>
             <div className="container item-center justify-between flex">
                 <Link to="/" style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--primary-color)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    MedStar<span style={{ color: 'var(--accent-color)' }}>.</span>
+                    SkyMedical<span style={{ color: 'var(--accent-color)' }}>.</span>
                 </Link>
 
                 {/* Desktop Menu */}

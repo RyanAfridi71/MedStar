@@ -22,13 +22,13 @@ const Home = () => {
                             fontSize: '0.9rem',
                             marginBottom: '1.5rem'
                         }}>
-                            Premier Medical Equipment
+                            Japan Import Used & Refurbished Medical Equipment
                         </span>
                         <h1 style={{ marginBottom: '1.5rem', lineHeight: '1.1' }}>
-                            Equipping Tomorrow's <span style={{ color: 'var(--primary-color)' }}>Healthcare</span> Today.
+                            Certified Pre-Owned & <span style={{ color: 'var(--primary-color)' }}>Refurbished</span> Medical Solutions.
                         </h1>
                         <p style={{ fontSize: '1.2rem', marginBottom: '2.5rem', maxWidth: '500px' }}>
-                            Top-quality medical supplies for hospitals, clinics, and home care. Trusted by professionals worldwide.
+                            High-quality ultrasound machines, CR systems, and healthcare equipment imported directly from Japan. Tested and trusted by clinics across Pakistan.
                         </p>
                         <div className="flex" style={{ gap: '1rem' }}>
                             <Link to="/products" className="btn btn-primary">

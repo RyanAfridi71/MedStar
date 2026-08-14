@@ -9,9 +9,9 @@ const Footer = () => {
 
                     {/* Brand Column */}
                     <div>
-                        <h3 style={{ color: 'var(--primary-color)', marginBottom: '1rem' }}>MedStar.</h3>
+                        <h3 style={{ color: 'var(--primary-color)', marginBottom: '1rem' }}>SkyMedical.</h3>
                         <p style={{ maxWidth: '300px' }}>
-                            Providing top-tier medical equipment to healthcare professionals and individuals. Quality you can trust.
+                            Providing top-tier used & refurbished medical equipment imported directly from Japan to healthcare professionals and hospitals across Pakistan. Quality you can trust.
                         </p>
                     </div>
 
@@ -37,7 +37,7 @@ const Footer = () => {
                                 <Phone size={18} /> +92 300 5956747
                             </li>
                             <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--text-light)' }}>
-                                <Mail size={18} /> ms85marketing@gmail.com
+                                <Mail size={18} /> info@skymedical.store
                             </li>
                         </ul>
                     </div>
@@ -45,7 +45,7 @@ const Footer = () => {
                 </div>
 
                 <div style={{ borderTop: '1px solid #e2e8f0', paddingTop: '2rem', textAlign: 'center', color: '#94a3b8', fontSize: '0.9rem' }}>
-                    &copy; {new Date().getFullYear()} MedStar Equipment. All rights reserved.
+                    &copy; {new Date().getFullYear()} SkyMedical Equipment. All rights reserved.
                 </div>
             </div>
         </footer>
