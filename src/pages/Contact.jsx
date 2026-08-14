@@ -56,10 +56,10 @@ Thank you.`;
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+        const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'a6a810ac-b6eb-4ff2-8604-eb1080b5f233';
         if (!accessKey) {
             setStatus('error');
-            setErrorMessage('Web3Forms Access Key is missing. Please configure it in your .env.local file as VITE_WEB3FORMS_ACCESS_KEY.');
+            setErrorMessage('Web3Forms Access Key is missing.');
             return;
         }
 
