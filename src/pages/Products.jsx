@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 import { products } from '../data/products';
 import { Search, X } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Products = () => {
     const [urlParams] = useSearchParams();
@@ -105,9 +106,14 @@ const Products = () => {
 
     return (
         <div className="container section">
-            <h1 className="text-center" style={{ marginBottom: '0.75rem' }}>Medical Equipment</h1>
-            <p className="text-center" style={{ maxWidth: '500px', margin: '0 auto 2.5rem', color: 'var(--text-light)' }}>
-                Japan import machines — verified working condition, available across Pakistan
+            <SEO
+                title="Used & Refurbished Medical Equipment Inventory | SkyMedical Pakistan"
+                description="Browse over 170 certified pre-owned ultrasound machines, CR systems, anesthesia machines, and ventilators imported from Japan. Tested and available across Pakistan."
+                canonical="https://skymedical.store/products"
+            />
+            <h1 className="text-center" style={{ marginBottom: '0.75rem' }}>Medical Equipment Inventory</h1>
+            <p className="text-center" style={{ maxWidth: '600px', margin: '0 auto 2.5rem', color: 'var(--text-light)' }}>
+                Certified Japan import machines &bull; 170+ diagnostic &amp; surgical units in stock &bull; Delivery across Pakistan
             </p>
 
             {/* ── Search Bar ── */}
@@ -292,7 +298,7 @@ const Products = () => {
             )}
 
             {/* ── Category Filter ── */}
-            <div className="flex justify-center" style={{ gap: '0.6rem', marginBottom: '3rem', flexWrap: 'wrap' }}>
+            <div className="flex justify-center category-filter-row" style={{ gap: '0.6rem', marginBottom: '3rem', flexWrap: 'wrap' }}>
                 {categories.map(cat => (
                     <button
                         key={cat}
@@ -306,7 +312,7 @@ const Products = () => {
             </div>
 
             {/* ── Product Grid ── */}
-            <div className="grid" style={{
+            <div className="grid product-grid" style={{
                 gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
                 gap: '2rem'
             }}>

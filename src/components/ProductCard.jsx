@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
-import { Mail } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 
 const ProductCard = ({ product }) => {
-    // Build the inquiry URL with encoded query params
-    const inquiryParams = new URLSearchParams({
-        product: product.name,
-        brand: product.brand,
-        category: product.category
-    }).toString();
+    const productSlug = product.slug || product.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+    const categorySlug = product.categorySlug || 'ultrasound';
+
+    // WhatsApp quick message
+    const waText = encodeURIComponent(
+        `Assalamualaikum SkyMedical, I am interested in the ${product.name} (${product.brand}) listed on your site. Please share current price, probe configuration, and availability.`
+    );
+    const waUrl = `https://wa.me/923469197496?text=${waText}`;
 
     return (
         <div
@@ -24,7 +26,7 @@ const ProductCard = ({ product }) => {
                 height: '100%'
             }}
             onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.transform = 'translateY(-4px)';
                 e.currentTarget.style.boxShadow = 'var(--shadow-md)';
             }}
             onMouseLeave={(e) => {
@@ -32,85 +34,121 @@ const ProductCard = ({ product }) => {
                 e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
             }}
         >
-            {/* Category Badge */}
-            <div style={{ marginBottom: '1rem' }}>
-                <span style={{
-                    backgroundColor: 'var(--bg-light, #f0fdfa)',
-                    padding: '0.25rem 0.6rem',
-                    borderRadius: '1rem',
-                    fontSize: '0.75rem',
-                    fontWeight: '600',
-                    color: 'var(--primary-color)',
-                    display: 'inline-block',
-                    letterSpacing: '0.02em',
-                    border: '1px solid var(--primary-light)',
-                }}>
+            {/* Category Badge Linking to Category Hub */}
+            <div style={{ marginBottom: '0.85rem' }}>
+                <Link
+                    to={`/category/${categorySlug}`}
+                    style={{
+                        backgroundColor: 'var(--bg-light, #f0fdfa)',
+                        padding: '0.25rem 0.65rem',
+                        borderRadius: '1rem',
+                        fontSize: '0.75rem',
+                        fontWeight: '600',
+                        color: 'var(--primary-color)',
+                        display: 'inline-block',
+                        letterSpacing: '0.02em',
+                        border: '1px solid var(--primary-light)',
+                        textDecoration: 'none',
+                        transition: 'background 0.2s'
+                    }}
+                >
                     {product.category}
-                </span>
+                </Link>
             </div>
 
-            {/* Brand & Name */}
+            {/* Brand & Name (with direct SEO link) */}
             <div style={{ flex: 1 }}>
                 <p style={{
-                    fontSize: '0.8rem',
+                    fontSize: '0.75rem',
                     color: 'var(--text-light)',
                     marginBottom: '0.25rem',
                     textTransform: 'uppercase',
                     letterSpacing: '0.08em',
-                    fontWeight: '600'
+                    fontWeight: '700'
                 }}>
                     {product.brand}
                 </p>
                 <h3 style={{
-                    fontSize: '1.05rem',
+                    fontSize: '1.1rem',
                     fontWeight: '700',
-                    color: 'var(--text-dark)',
-                    lineHeight: '1.4'
+                    lineHeight: '1.35',
+                    marginBottom: '0.5rem'
                 }}>
-                    {product.name}
+                    <Link
+                        to={`/products/${productSlug}`}
+                        style={{
+                            color: 'var(--text-dark)',
+                            textDecoration: 'none',
+                            transition: 'color 0.2s'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary-color)'}
+                        onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-dark)'}
+                    >
+                        {product.name}
+                    </Link>
                 </h3>
                 <p style={{
                     fontSize: '0.8rem',
-                    color: 'var(--text-light)',
-                    marginTop: '0.5rem',
+                    color: '#0d9488',
+                    fontWeight: '500',
+                    marginTop: '0.25rem',
                     marginBottom: 0
                 }}>
-                    Japan Import &bull; Direct Stock
+                    Japan Direct Import &bull; Biomedical Tested
                 </p>
             </div>
 
-            {/* Clickable "Contact for Price" Button */}
-            <div style={{ marginTop: '1.25rem', borderTop: '1px solid #e2e8f0', paddingTop: '1rem' }}>
+            {/* Action Buttons: View Details + Quick WhatsApp */}
+            <div style={{ marginTop: '1.25rem', borderTop: '1px solid #f1f5f9', paddingTop: '1rem', display: 'flex', gap: '0.5rem' }}>
                 <Link
-                    to={`/contact?${inquiryParams}`}
+                    to={`/products/${productSlug}`}
+                    style={{
+                        flex: 1,
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '0.4rem',
+                        padding: '0.6rem 0.8rem',
+                        backgroundColor: 'var(--primary-color)',
+                        color: 'white',
+                        borderRadius: 'var(--radius-md)',
+                        fontSize: '0.85rem',
+                        fontWeight: '600',
+                        transition: 'var(--transition)',
+                        textDecoration: 'none',
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = 'var(--primary-dark)';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'var(--primary-color)';
+                    }}
+                >
+                    View Specs <ArrowRight size={14} />
+                </Link>
+
+                <a
+                    href={waUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Inquire about ${product.name} on WhatsApp`}
+                    title="Quick WhatsApp Inquiry"
                     style={{
                         display: 'inline-flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        gap: '0.45rem',
-                        width: '100%',
-                        padding: '0.6rem 1rem',
-                        backgroundColor: 'var(--primary-color)',
+                        padding: '0.6rem 0.8rem',
+                        backgroundColor: '#25D366',
                         color: 'white',
                         borderRadius: 'var(--radius-md)',
-                        fontSize: '0.875rem',
-                        fontWeight: '600',
-                        transition: 'var(--transition)',
-                        textDecoration: 'none',
-                        letterSpacing: '0.01em',
+                        transition: 'transform 0.2s, background 0.2s',
+                        textDecoration: 'none'
                     }}
-                    onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = 'var(--primary-dark)';
-                        e.currentTarget.style.transform = 'scale(1.02)';
-                    }}
-                    onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = 'var(--primary-color)';
-                        e.currentTarget.style.transform = 'scale(1)';
-                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+                    onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                 >
-                    <Mail size={15} />
-                    Contact for Price
-                </Link>
+                    <MessageCircle size={16} />
+                </a>
             </div>
         </div>
     );

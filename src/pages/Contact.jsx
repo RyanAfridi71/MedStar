@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Mail, Phone, MapPin, Send, Loader2, CheckCircle2, AlertCircle, Package } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Contact = () => {
     const [searchParams] = useSearchParams();
@@ -30,6 +31,7 @@ Thank you.`;
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        phone: '',
         message: buildInquiryMessage()
     });
     const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
@@ -82,6 +84,7 @@ Thank you.`;
                     access_key: accessKey,
                     name: formData.name,
                     email: formData.email,
+                    phone: formData.phone,
                     message: formData.message,
                     subject,
                     from_name: 'SkyMedical Website',
@@ -98,7 +101,7 @@ Thank you.`;
 
             if (data.success) {
                 setStatus('success');
-                setFormData({ name: '', email: '', message: '' });
+                setFormData({ name: '', email: '', phone: '', message: '' });
             } else {
                 setStatus('error');
                 setErrorMessage(data.message || 'Something went wrong. Please try again.');
@@ -125,6 +128,14 @@ Thank you.`;
 
     return (
         <div className="container section">
+            <SEO
+                title={hasInquiry ? `Price Inquiry: ${inquiryProduct} (${inquiryBrand}) | SkyMedical` : 'Contact SkyMedical Peshawar | Price Inquiries & WhatsApp'}
+                description={hasInquiry
+                    ? `Request price quote, probe availability, and delivery details for ${inquiryProduct} (${inquiryBrand}) from SkyMedical Peshawar.`
+                    : 'Get in touch with SkyMedical in Peshawar, Pakistan for certified refurbished Japanese ultrasound machines, CR systems, and healthcare equipment. Phone: +92 346 9197496.'
+                }
+                canonical="https://skymedical.store/contact"
+            />
             <h1 className="text-center" style={{ marginBottom: '0.75rem' }}>
                 {hasInquiry ? 'Request a Price Quote' : 'Contact Us'}
             </h1>
@@ -164,7 +175,7 @@ Thank you.`;
                 </div>
             )}
 
-            <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', maxWidth: '1000px', margin: '0 auto' }}>
+            <div className="grid contact-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', maxWidth: '1000px', margin: '0 auto' }}>
 
                 {/* Contact Info Panel */}
                 <div>
@@ -179,10 +190,52 @@ Thank you.`;
                                 <Phone size={20} />
                             </div>
                             <div>
-                                <h4 style={{ fontSize: '1rem', marginBottom: '0.25rem' }}>Phone</h4>
-                                <p style={{ margin: 0, color: 'var(--text-dark)', fontWeight: '500' }}>+92 300 5956747</p>
+                                <h4 style={{ fontSize: '1rem', marginBottom: '0.25rem' }}>Phone & WhatsApp</h4>
+                                <a
+                                    href="https://wa.me/923469197496"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{ margin: 0, color: 'var(--primary-color)', fontWeight: '600', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
+                                >
+                                    +92 346 9197496
+                                </a>
                             </div>
                         </div>
+
+                        {/* Direct WhatsApp Chat Action Button */}
+                        <a
+                            href="https://wa.me/923469197496"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                gap: '0.65rem',
+                                backgroundColor: '#25D366',
+                                color: 'white',
+                                padding: '0.75rem 1.25rem',
+                                borderRadius: 'var(--radius-md)',
+                                fontWeight: '700',
+                                textDecoration: 'none',
+                                boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)',
+                                transition: 'transform 0.2s, box-shadow 0.2s',
+                                width: '100%',
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.transform = 'translateY(-2px)';
+                                e.currentTarget.style.boxShadow = '0 6px 16px rgba(37, 211, 102, 0.4)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.transform = 'translateY(0)';
+                                e.currentTarget.style.boxShadow = '0 4px 12px rgba(37, 211, 102, 0.3)';
+                            }}
+                        >
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c-.001 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662a11.87 11.87 0 005.707 1.456h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                            Contact via WhatsApp
+                        </a>
 
                         <div className="flex" style={{ gap: '1rem', alignItems: 'flex-start' }}>
                             <div style={{ padding: '0.85rem', backgroundColor: '#e0f2fe', borderRadius: '50%', color: 'var(--primary-color)', flexShrink: 0 }}>
@@ -316,6 +369,31 @@ Thank you.`;
                                 placeholder="e.g. doctor@hospital.pk"
                                 disabled={status === 'submitting'}
                                 value={formData.email}
+                                onChange={handleChange}
+                                style={inputStyle(status === 'submitting')}
+                                onFocus={(e) => {
+                                    e.target.style.borderColor = 'var(--primary-color)';
+                                    e.target.style.boxShadow = '0 0 0 3px rgba(15, 118, 110, 0.1)';
+                                }}
+                                onBlur={(e) => {
+                                    e.target.style.borderColor = '#cbd5e1';
+                                    e.target.style.boxShadow = 'none';
+                                }}
+                            />
+                        </div>
+
+                        <div>
+                            <label htmlFor="phone" style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', fontSize: '0.9rem' }}>
+                                Contact / WhatsApp Number <span style={{ color: '#ef4444' }}>*</span>
+                            </label>
+                            <input
+                                id="phone"
+                                name="phone"
+                                type="tel"
+                                required
+                                placeholder="e.g. +92 346 9197496"
+                                disabled={status === 'submitting'}
+                                value={formData.phone}
                                 onChange={handleChange}
                                 style={inputStyle(status === 'submitting')}
                                 onFocus={(e) => {

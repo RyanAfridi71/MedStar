@@ -1,4 +1,4 @@
-export const products = [
+const rawProducts = [
     // --- ULTRASOUND MACHINES ---
     { "id": 1, "name": "Toshiba Aplio 300", "category": "Ultrasound", "brand": "Toshiba" },
     { "id": 2, "name": "Toshiba Aplio 400", "category": "Ultrasound", "brand": "Toshiba" },
@@ -205,3 +205,322 @@ export const products = [
     { "id": 177, "name": "Newport e840 Ventilator", "category": "Ventilators", "brand": "Newport" },
     { "id": 178, "name": "Newport e500 Ventilator", "category": "Ventilators", "brand": "Newport" }
 ];
+
+export const slugify = (text) => {
+    return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/&/g, '-and-')
+        .replace(/[\s\W-]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+};
+
+export const categorySlugMap = {
+    'Ultrasound': 'ultrasound',
+    'Computed Radiography': 'computed-radiography',
+    'Anesthesia': 'anesthesia',
+    'Pumps': 'infusion-pumps',
+    'Aesthetic': 'aesthetic-lasers',
+    'Electrosurgical': 'electrosurgical-units',
+    'Ophthalmology & OR': 'ophthalmology-or-equipment',
+    'Ventilators': 'ventilators'
+};
+
+export const reverseCategorySlugMap = Object.entries(categorySlugMap).reduce((acc, [cat, slug]) => {
+    acc[slug] = cat;
+    return acc;
+}, {});
+
+export const products = rawProducts.map(p => ({
+    ...p,
+    slug: slugify(p.name),
+    categorySlug: categorySlugMap[p.category] || slugify(p.category)
+}));
+
+export const getProductBySlug = (slug) => {
+    if (!slug) return null;
+    const cleanSlug = slug.toLowerCase().trim();
+    return products.find(p => p.slug === cleanSlug) || null;
+};
+
+export const getProductsByCategory = (categoryOrSlug) => {
+    if (!categoryOrSlug || categoryOrSlug === 'All') return products;
+    const actualCategory = reverseCategorySlugMap[categoryOrSlug] || categoryOrSlug;
+    return products.filter(p => p.category.toLowerCase() === actualCategory.toLowerCase());
+};
+
+export const getRelatedProducts = (currentProduct, limit = 4) => {
+    if (!currentProduct) return [];
+    return products
+        .filter(p => p.id !== currentProduct.id && (p.category === currentProduct.category || p.brand === currentProduct.brand))
+        .slice(0, limit);
+};
+
+// Bespoke metadata overrides for high-intent search models
+const bespokeModelDetails = {
+    'toshiba-aplio-500': {
+        shortHighlight: 'Flagship premium diagnostic ultrasound with High Density Architecture and Precision Imaging.',
+        specialFeatures: [
+            'Precision Imaging & ApliPure+ multi-frequency compound imaging for crisp tissue demarcation',
+            'Differential Tissue Harmonic Imaging (D-THI) for deep penetration in difficult-to-image patients',
+            'Superb Micro-vascular Imaging (SMI) for high-frame-rate microvascular flow visualisation',
+            'Smart 3D / 4D Surface Rendering and Fly Thru virtual endoscopy',
+            'High-resolution 19" LCD monitor on articulating arm with fully customizable touch command screen'
+        ],
+        clinicalApplications: ['Radiology & General Imaging', 'Cardiology & Vascular', 'OB/GYN 3D/4D', 'Musculoskeletal (MSK)', 'Small Parts & Breast', 'Urology']
+    },
+    'toshiba-aplio-300': {
+        shortHighlight: 'High-performance workhorse ultrasound delivering premium Aplio image quality for busy diagnostic clinics.',
+        specialFeatures: [
+            'Differential Tissue Harmonic Imaging and Advanced Dynamic Flow',
+            'QuickScan single-button automatic image optimization in 2D and Doppler',
+            'Comprehensive DICOM 3.0 connectivity and patient reporting package',
+            '19-inch high-definition digital display with ergonomic height and angle adjustments'
+        ],
+        clinicalApplications: ['Abdominal & Pelvic', 'Obstetrics & Gynaecology', 'Peripheral Vascular', 'Small Organs & Thyroid']
+    },
+    'ge-logiq-p8': {
+        shortHighlight: 'Advanced, lightweight console ultrasound system engineered for high patient throughput and fast workflow.',
+        specialFeatures: [
+            'CrossXBeam spatial compounding and SRI-HD Speckle Reduction Imaging',
+            'Auto Optimization (AO) and Auto IMT for vascular assessment',
+            '21.5" widescreen LCD monitor and 10.4" responsive touch panel',
+            'Fully digital architecture with ultra-fast boot time and quiet acoustic operation'
+        ],
+        clinicalApplications: ['General Radiology', 'Vascular & Doppler', 'OB/GYN', 'MSK & Orthopedics', 'Pediatrics']
+    },
+    'ge-vivid-e9': {
+        shortHighlight: 'World-class 4D cardiovascular ultrasound system with accelerated volume architecture.',
+        specialFeatures: [
+            '4D TEE & 4D Transthoracic Cardiac Imaging capabilities',
+            'Automated Function Imaging (AFI) for speckle tracking strain analysis',
+            'Triplane imaging for simultaneous multi-plane cardiac evaluation',
+            'AFI 2.0 and Quantification Tools tailored for cardiology centers'
+        ],
+        clinicalApplications: ['Adult & Pediatric Cardiology', 'Cardiac Surgery & TEE', 'Vascular & Hemodynamics', 'Stress Echo']
+    },
+    'philips-epiq-5': {
+        shortHighlight: 'Premium ultrasound platform powered by nSIGHT Imaging architecture for extraordinary resolution.',
+        specialFeatures: [
+            'nSIGHT Imaging technology delivers crisp acoustic fidelity at frame rates up to 40% higher',
+            'PureWave crystal transducer technology for improved penetration on technically difficult patients',
+            'SmartExam guided workflow with automated protocol sequencing',
+            '21.5-inch high-resolution flat panel display with silent cart design'
+        ],
+        clinicalApplications: ['Radiology', 'Cardiology & Vascular', 'Obstetrics & Fetal Echo', 'Small Parts & MSK']
+    },
+    'fujifilm-fcr-prima': {
+        shortHighlight: 'Compact, high-throughput tabletop Computed Radiography (CR) reader ideal for clinics and hospitals.',
+        specialFeatures: [
+            'Processing capacity of up to 73 IP plates per hour (14"x14")',
+            'Image Intelligence (TM) automated image optimization algorithms',
+            'Ultra-compact footprint of just 0.24 m² fitting in minimal darkroom/clinic spaces',
+            'Seamless PACS and DICOM connectivity for digital radiography workflows'
+        ],
+        clinicalApplications: ['General Chest & Skeletal X-Ray', 'Orthopedic Radiography', 'Trauma Imaging', 'Pediatric Radiography']
+    },
+    'drager-fabius': {
+        shortHighlight: 'Industry-standard anesthesia workstation with electrically driven, electronically controlled E-vent piston ventilator.',
+        specialFeatures: [
+            'E-vent piston ventilator requires no drive gas, saving hospital central gas supply',
+            'Comprehensive ventilation modes: Volume Control, Pressure Control, and Pressure Support',
+            'High-precision multi-gas vaporizers (Isoflurane / Sevoflurane mount)',
+            'Integrated compact breathing system (COSY) with quick-release canister'
+        ],
+        clinicalApplications: ['General Surgery Anesthesia', 'Operating Room Theatres', 'Pediatric & Adult Surgery']
+    },
+    'candela-gentlemax-laser-system': {
+        shortHighlight: 'Gold-standard dual-wavelength (755 nm Alexandrite and 1064 nm Nd:YAG) aesthetic laser workstation.',
+        specialFeatures: [
+            'Dual-wavelength delivery for all Fitzpatrick skin types (I-VI)',
+            'Patented Dynamic Cooling Device (DCD) for consistent epidermal cryogen protection',
+            'Large spot sizes up to 24mm for ultra-fast treatment sessions',
+            'Multi-indication treatment: permanent hair reduction, vascular lesions, pigmented lesions'
+        ],
+        clinicalApplications: ['Laser Hair Removal', 'Facial & Leg Veins', 'Benign Pigmented Lesions', 'Skin Tightening']
+    }
+};
+
+export const getProductDetails = (product) => {
+    if (!product) return null;
+
+    const bespoke = bespokeModelDetails[product.slug] || {};
+    const isUltrasound = product.category === 'Ultrasound';
+    const isCR = product.category === 'Computed Radiography';
+    const isAnesthesia = product.category === 'Anesthesia';
+    const isVentilator = product.category === 'Ventilators';
+    const isLaser = product.category === 'Aesthetic';
+    const isPump = product.category === 'Pumps';
+    const isElectrosurgical = product.category === 'Electrosurgical';
+
+    let defaultHighlight = `Certified pre-owned and refurbished ${product.brand} ${product.name} directly imported from Japan. Tested, calibrated, and ready for immediate deployment in hospitals, clinics, and diagnostic labs across Pakistan.`;
+    if (bespoke.shortHighlight) defaultHighlight = bespoke.shortHighlight;
+
+    const defaultApplications = bespoke.clinicalApplications || (
+        isUltrasound ? ['General Abdominal', 'Obstetrics & Gynaecology (OB/GYN)', 'Vascular & Doppler', 'Small Organs & Thyroid', 'Musculoskeletal (MSK)'] :
+        isCR ? ['General Digital Radiography', 'Chest & Skeletal X-Rays', 'Orthopedic Diagnostics', 'Trauma & Urgent Care'] :
+        isAnesthesia ? ['Operating Room (OT) Surgery', 'General Anesthesia Delivery', 'Day Care Surgery Centers'] :
+        isVentilator ? ['Intensive Care Unit (ICU)', 'Critical Care & Trauma', 'Post-Operative Recovery (PACU)', 'Emergency Care'] :
+        isLaser ? ['Aesthetic Clinics', 'Dermatology & Skin Centers', 'Laser Rejuvenation & Hair Removal'] :
+        isPump ? ['ICU / CCU Infusion Therapy', 'Chemotherapy & Oncology Delivery', 'Neonatal & Pediatric Care', 'General Inpatient Wards'] :
+        isElectrosurgical ? ['General Surgery Cautery', 'Laparoscopic & Minimally Invasive Surgery', 'Gynecological & Orthopedic Procedures'] :
+        ['Surgical Operating Theatres', 'Diagnostic Clinics', 'Specialized Medical Centers']
+    );
+
+    const defaultSpecs = [
+        { label: 'Manufacturer / Brand', value: product.brand },
+        { label: 'Model Name', value: product.name },
+        { label: 'Category', value: product.category },
+        { label: 'Equipment Origin', value: 'Direct Japan Hospital Decommissioning & Verified Auctions' },
+        { label: 'Condition', value: 'Certified Pre-Owned / Fully Refurbished & Bio-Engineer Tested' },
+        { label: 'Power Standard', value: 'Standard 220V - 240V AC, 50/60 Hz (Pakistan Hospital Grid Compatible)' },
+        {
+            label: isUltrasound ? 'Transducer / Probes' : 'System Configuration',
+            value: isUltrasound
+                ? 'Convex, Linear, Cardiac Phased Array, or Transvaginal / 3D probes available on request'
+                : isCR
+                ? 'Imaging plates, Cassette sets, Acquisition workstation, and DICOM viewer software'
+                : isAnesthesia
+                ? 'Selectatec vaporizer manifolds, integrated ventilator, absorber canister & hose set'
+                : 'Standard hospital-grade configuration with complete patient interface accessories'
+        },
+        {
+            label: isUltrasound ? 'Doppler & Imaging Modes' : 'Operating Modes',
+            value: isUltrasound
+                ? 'B-Mode, M-Mode, Color Flow Doppler, Power Doppler, Pulse Wave (PW), Continuous Wave (CW on cardiac)'
+                : isCR
+                ? 'High-resolution photostimulable phosphor read-out, Auto contrast adjustment, DICOM Store/Print'
+                : isAnesthesia
+                ? 'Volume Control (VCV), Pressure Control (PCV), Manual / Spontaneous ventilation'
+                : isVentilator
+                ? 'Volume & Pressure Controlled, SIMV, CPAP/PSV, Non-Invasive (NIV) support'
+                : 'Microprocessor controlled clinical delivery with automated safety self-test'
+        },
+        { label: 'Technical Testing', value: 'Passed 30-Point Biomedical Quality Inspection & Electrical Safety Calibration' },
+        { label: 'Inspection Location', value: 'SkyMedical Warehouse, Main Umar Gul Rd, Manakrao, Peshawar, Pakistan' },
+        { label: 'Delivery Coverage', value: 'Fast insured shipment to Peshawar, Islamabad, Rawalpindi, Lahore, Karachi, Multan, Quetta, Faisalabad & all Pakistan' },
+        { label: 'Warranty & Support', value: 'Startup operational warranty included + ongoing biomedical maintenance support' }
+    ];
+
+    const faqs = [
+        {
+            question: `What is the price of ${product.name} in Pakistan?`,
+            answer: `Prices for the ${product.name} in Pakistan depend on unit condition, manufacture year, software options, and included accessories or probe packages (e.g. Convex, Linear, TVS, Cardiac). Please contact SkyMedical via WhatsApp (+92 346 9197496) or submit a quote request to receive today's verified warehouse price and delivery quote.`
+        },
+        {
+            question: `Is this ${product.name} directly imported from Japan?`,
+            answer: `Yes. SkyMedical imports medical systems directly from Japanese hospital upgrades and accredited equipment auctions. Every machine retains its genuine Japanese build quality and has never been roughly refurbished with uncertified third-party parts.`
+        },
+        {
+            question: `Can I physically inspect and test the ${product.name} before purchasing?`,
+            answer: `Absolutely. We welcome doctors, hospital biomedical engineers, and clinic administrators to our Peshawar warehouse located at Main Umar Gul Rd, Manakrao, Peshawar. You can inspect the machine, test imaging and software functions, and verify all accessories prior to finalized purchase.`
+        },
+        {
+            question: `Do you deliver and install ${product.name} outside Peshawar across Pakistan?`,
+            answer: `Yes. We provide insured, secure nationwide freight delivery to Islamabad, Rawalpindi, Lahore, Karachi, Quetta, Multan, Faisalabad, and all surrounding regions across Pakistan with operational setup assistance.`
+        },
+        {
+            question: `What warranty and biomedical technical support is provided?`,
+            answer: `SkyMedical provides an operational startup warranty on all delivered machines. Furthermore, our dedicated biomedical engineering team provides technical troubleshooting, spare parts sourcing, and routine maintenance assistance.`
+        }
+    ];
+
+    return {
+        ...product,
+        highlight: defaultHighlight,
+        features: bespoke.specialFeatures || [
+            'Thoroughly inspected, cleaned, and calibrated by certified biomedical technicians',
+            'Full compatibility with standard Pakistan hospital electrical voltage (220V/50Hz)',
+            'Pre-installed clinical software packages and patient reporting modules',
+            'Genuine Japanese manufacturing durability offering years of reliable daily service'
+        ],
+        clinicalApplications: defaultApplications,
+        specs: defaultSpecs,
+        faqs,
+        pricingNotice: 'Prices vary based on cosmetic condition, working hours, software options, and probe/accessory packages. Contact SkyMedical today for the current verified Pakistan price and availability.'
+    };
+};
+
+export const categoriesMeta = {
+    'ultrasound': {
+        name: 'Ultrasound',
+        slug: 'ultrasound',
+        h1: 'Used & Refurbished Ultrasound Machines in Pakistan',
+        title: 'Used & Refurbished Ultrasound Machines in Pakistan | SkyMedical',
+        metaDescription: 'Buy certified used & refurbished ultrasound machines imported from Japan. Top brands include Toshiba (Canon), GE Healthcare, Philips, Siemens, and Aloka with warranty and delivery across Pakistan.',
+        summary: 'SkyMedical is Pakistan’s leading importer of high-precision Japanese ultrasound machines. We stock certified pre-owned color Doppler systems, portable ultrasound units, and 3D/4D obstetrics machines from world-class manufacturers like Toshiba (Canon Medical), GE Healthcare, Philips, Siemens, and Hitachi-Aloka. Every machine undergoes comprehensive biomedical engineering calibration in our Peshawar warehouse before delivery to clinics and hospitals nationwide.',
+        keyBrands: ['Toshiba / Canon Medical', 'GE Healthcare', 'Philips', 'Siemens', 'Hitachi-Aloka', 'Fujifilm'],
+        popularModels: ['Toshiba Aplio 500', 'Toshiba Aplio 300', 'Toshiba Xario 200', 'GE LOGIQ P8', 'GE LOGIQ E9', 'GE Vivid E9', 'Philips EPIQ 5', 'Aloka F37']
+    },
+    'computed-radiography': {
+        name: 'Computed Radiography',
+        slug: 'computed-radiography',
+        h1: 'Refurbished Computed Radiography (CR) Systems in Pakistan',
+        title: 'Used & Refurbished CR Machines in Pakistan | Fujifilm & Konica | SkyMedical',
+        metaDescription: 'Explore certified refurbished Computed Radiography (CR) digitizers imported from Japan. Fujifilm FCR Prima, FCR Capsula, and Konica Minolta Regius with installation and support across Pakistan.',
+        summary: 'Upgrade your diagnostic facility from analog film to crystal-clear digital radiography with SkyMedical’s imported Japanese CR systems. We provide tabletop and multi-plate Fujifilm FCR and Konica Minolta digitizers, complete with high-resolution image processing workstations, imaging plates, and DICOM PACS connectivity.',
+        keyBrands: ['Fujifilm', 'Konica Minolta'],
+        popularModels: ['Fujifilm FCR Prima', 'Fujifilm FCR Capsula XL', 'Fujifilm FCR XG-1', 'Konica Regius 110', 'Konica Regius 190']
+    },
+    'anesthesia': {
+        name: 'Anesthesia',
+        slug: 'anesthesia',
+        h1: 'Refurbished Anesthesia Workstations in Pakistan',
+        title: 'Used & Refurbished Anesthesia Machines in Pakistan | Dräger & GE | SkyMedical',
+        metaDescription: 'High-quality Japanese import anesthesia machines in Pakistan. Dräger Fabius, GE Aisys, GE Avance, and Datex-Ohmeda workstations tested by biomedical engineers with nationwide shipping.',
+        summary: 'SkyMedical supplies dependable, hospital-grade anesthesia workstations imported from Japan. Featuring precision vaporizers, electronically driven ventilators, and integrated patient respiratory monitors, our Dräger and GE systems provide critical reliability in surgical operating theatres across Pakistan.',
+        keyBrands: ['Dräger', 'GE Healthcare', 'Datex-Ohmeda'],
+        popularModels: ['Dräger Fabius GS', 'Dräger Fabius Tiro', 'GE Aisys', 'GE Avance', 'Datex-Ohmeda Aestiva 3000']
+    },
+    'ventilators': {
+        name: 'Ventilators',
+        slug: 'ventilators',
+        h1: 'Certified ICU & Critical Care Ventilators in Pakistan',
+        title: 'Used & Refurbished ICU Ventilators in Pakistan | Hamilton & Dräger | SkyMedical',
+        metaDescription: 'Hospital-grade critical care and ICU ventilators in Pakistan. Hamilton C2, Dräger Evita, Covidien PB840, and Newport ventilators imported from Japan with warranty and full calibration.',
+        summary: 'Provide life-saving mechanical ventilation in your intensive care unit with SkyMedical’s refurbished ventilators. Sourced from Japanese medical facilities, our ventilators undergo rigorous pneumatic, battery, and sensor testing to ensure flawless performance for adult, pediatric, and neonatal patients.',
+        keyBrands: ['Hamilton Medical', 'Dräger', 'Covidien / Medtronic', 'Newport', 'IMI'],
+        popularModels: ['Hamilton C2', 'Dräger Evita 4', 'Dräger Savina', 'Covidien PB840', 'Covidien PB980']
+    },
+    'aesthetic-lasers': {
+        name: 'Aesthetic',
+        slug: 'aesthetic-lasers',
+        h1: 'Used & Refurbished Aesthetic Laser Machines in Pakistan',
+        title: 'Refurbished Aesthetic & Dermatological Lasers in Pakistan | Candela & Lumenis | SkyMedical',
+        metaDescription: 'Gold-standard aesthetic lasers in Pakistan. Candela GentleMax, Vbeam Perfecta, and Lumenis M22 lasers imported from Japan for dermatology, hair removal, and skin rejuvenation clinics.',
+        summary: 'Equip your dermatology clinic or aesthetic medical center with industry-leading lasers from Candela and Lumenis. Sourced directly from Japan, our systems provide effective dual-wavelength hair reduction, vascular lesion treatment, and skin rejuvenation with verified pulse calibration.',
+        keyBrands: ['Candela', 'Lumenis', 'JMEC', 'Curia'],
+        popularModels: ['Candela GentleMax Pro', 'Candela Vbeam Perfecta', 'Lumenis M22', 'Lumenis LightSheer Duet']
+    },
+    'infusion-pumps': {
+        name: 'Pumps',
+        slug: 'infusion-pumps',
+        h1: 'Infusion & Syringe Pumps in Pakistan',
+        title: 'Refurbished Terumo & JMS Syringe and Infusion Pumps in Pakistan | SkyMedical',
+        metaDescription: 'High-accuracy Terumo and JMS syringe and volumetric infusion pumps imported from Japan. Cleaned, flow-calibrated, and battery-tested for hospitals and clinics in Pakistan.',
+        summary: 'Deliver precise intravenous medication and enteral nutrition with SkyMedical’s certified Japanese infusion and syringe pumps. Known for exceptional durability and micro-step dosing accuracy, our Terumo and JMS units meet strict ICU and pediatric standards.',
+        keyBrands: ['Terumo', 'JMS', 'Kangaroo'],
+        popularModels: ['Terumo TE-331 Syringe Pump', 'Terumo TE-372 Infusion Pump', 'JMS SP-500', 'Kangaroo ePump']
+    },
+    'electrosurgical-units': {
+        name: 'Electrosurgical',
+        slug: 'electrosurgical-units',
+        h1: 'Refurbished Electrosurgical Units (ESU & Cautery) in Pakistan',
+        title: 'Valleylab Electrosurgical Cautery Machines in Pakistan | SkyMedical',
+        metaDescription: 'Refurbished Valleylab electrosurgical generators and cautery units in Pakistan. Monopolar, bipolar, and vessel sealing systems tested for surgical operating theatres.',
+        summary: 'Perform precision surgical cutting and coagulation with Valleylab electrosurgical generators imported from Japan. Every generator is tested with dummy loads and calibrated for RF output accuracy, ensuring patient safety in surgical suites across Pakistan.',
+        keyBrands: ['Valleylab / Medtronic'],
+        popularModels: ['Valleylab Force Triad', 'Valleylab Force 40', 'Valleylab Force 20', 'Valleylab 300']
+    },
+    'ophthalmology-or-equipment': {
+        name: 'Ophthalmology & OR',
+        slug: 'ophthalmology-or-equipment',
+        h1: 'Ophthalmology & Operating Room (OR) Equipment in Pakistan',
+        title: 'Used Ophthalmic Microscopes, Lasers & OT Equipment in Pakistan | SkyMedical',
+        metaDescription: 'Operating microscopes, slit lamps, ophthalmic YAG lasers, and surgical OT tables imported from Japan. Tested and delivered nationwide by SkyMedical Peshawar.',
+        summary: 'Equip your surgical suites and eye care practices with imported Japanese operating microscopes, slit lamp biomicroscopes, ophthalmic B-scans, and surgical tables.',
+        keyBrands: ['Topcon', 'Nidek', 'Zeiss', 'Generic High-Grade Japan'],
+        popularModels: ['Ophthalmic Operating Microscope', 'Nd:YAG Laser System', 'Slit Lamp Biomicroscope', 'OT Operating Table']
+    }
+};

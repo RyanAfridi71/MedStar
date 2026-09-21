@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node -e \"import('fs').then(f => f.copyFileSync('public/.htaccess', 'dist/.htaccess'))\"",
+    "build": "node scripts/generate-sitemaps.js && vite build && node -e \"import('fs').then(f => f.copyFileSync('public/.htaccess', 'dist/.htaccess'))\"",
     "lint": "eslint .",
     "preview": "vite preview"
   },
